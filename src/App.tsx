@@ -23,8 +23,8 @@ const DESIGN_OPTIONS = [
 ];
 
 const MUG_OPTIONS = [
-  { id: "white", url: "/front.png", label: "⚪ Trắng" },
-  { id: "black", url: "/mug-black.png", label: "⚫ Đen" },
+  { id: "white", url: "/front.png", label: "⚪ White" },
+  { id: "black", url: "/mug-black.png", label: "⚫ Black" },
 ];
 
 // Canvas dimensions
@@ -39,7 +39,7 @@ const MUG_DESIGN_AREA = {
   height: 280,
 };
 
-// Component để render hình ảnh
+// Component to render images
 const AssetImage = ({
   url,
   x,
@@ -57,7 +57,7 @@ const AssetImage = ({
   return <Image image={image} x={x} y={y} width={width} height={height} />;
 };
 
-// Component render mug background
+// Component to render mug background
 const MugBackground = ({ url }: { url: string }) => {
   const [image] = useImage(url, "anonymous");
   return (
@@ -95,24 +95,24 @@ const PodDesigner = () => {
       {/* CONTROL PANEL */}
       <div className="control-panel">
         <h2>Mug Designer</h2>
-        <p className="subtitle">Tùy chỉnh thiết kế của bạn</p>
+        <p className="subtitle">Customize your design</p>
 
         {/* Name Input */}
         <div className="form-group">
-          <label>Tên hiển thị</label>
+          <label>Display Name</label>
           <input
             type="text"
             value={selections.userName}
             onChange={(e) =>
               setSelections({ ...selections, userName: e.target.value })
             }
-            placeholder="Nhập tên của bạn..."
+            placeholder="Enter your name..."
           />
         </div>
 
         {/* Design Selection */}
         <div className="form-group">
-          <label>Chọn Design</label>
+          <label>Choose Design</label>
           <div className="design-grid">
             {DESIGN_OPTIONS.map((item) => (
               <button
@@ -130,7 +130,7 @@ const PodDesigner = () => {
 
         {/* Mug Color Selection */}
         <div className="form-group">
-          <label>Màu Mug</label>
+          <label>Mug Color</label>
           <div className="asset-grid">
             {MUG_OPTIONS.map((item) => (
               <button
@@ -162,14 +162,14 @@ const PodDesigner = () => {
             <polyline points="7 10 12 15 17 10" />
             <line x1="12" y1="15" x2="12" y2="3" />
           </svg>
-          Tải File In (300 DPI)
+          Download Print File (300 DPI)
         </button>
       </div>
 
       {/* CANVAS PREVIEW */}
       <div className="canvas-container">
         <div className="canvas-header">
-          <h3>Xem trước thiết kế</h3>
+          <h3>Design Preview</h3>
           <span className="canvas-badge">Live Preview</span>
         </div>
         <div className="canvas-wrapper">
