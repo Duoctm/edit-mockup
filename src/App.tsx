@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Stage, Layer, Image, Text, Group } from "react-konva";
 import useImage from "use-image";
 
@@ -78,6 +78,29 @@ const PodDesigner = () => {
     userName: "Your Name",
   });
 
+  // Responsive canvas sizing
+  const [canvasSize, setCanvasSize] = useState({
+    width: CANVAS_WIDTH,
+    height: CANVAS_HEIGHT,
+  });
+
+  useEffect(() => {
+    const updateSize = () => {
+      const maxWidth = Math.min(window.innerWidth - 48, CANVAS_WIDTH); // 48px for padding
+      const scale = maxWidth / CANVAS_WIDTH;
+      setCanvasSize({
+        width: Math.round(CANVAS_WIDTH * scale),
+        height: Math.round(CANVAS_HEIGHT * scale),
+      });
+    };
+
+    updateSize();
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+
+  const scale = canvasSize.width / CANVAS_WIDTH;
+
   const stageRef = React.useRef<any>(null);
 
   const handleExport = () => {
@@ -155,8 +178,12 @@ const PodDesigner = () => {
           <span className="canvas-badge">Live Preview</span>
         </div>
         <div className="canvas-wrapper">
-          <Stage width={CANVAS_WIDTH} height={CANVAS_HEIGHT} ref={stageRef}>
-            <Layer>
+          <Stage
+            width={canvasSize.width}
+            height={canvasSize.height}
+            ref={stageRef}
+          >
+            <Layer scaleX={scale} scaleY={scale}>
               {/* Mug Background */}
               <MugBackground url={selections.mug.url} />
 

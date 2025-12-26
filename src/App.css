@@ -226,13 +226,97 @@
 /* Responsive */
 @media (max-width: 900px) {
   .pod-designer {
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     padding: 20px;
+    gap: 24px;
   }
 
   .control-panel {
     width: 100%;
-    max-width: 400px;
+    max-width: 100%;
+    padding: 24px;
+    border-radius: 20px;
+  }
+
+  .control-panel h2 {
+    font-size: 1.5rem;
+  }
+
+  .canvas-container {
+    width: 100%;
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .canvas-wrapper {
+    border-radius: 12px;
+  }
+
+  .export-btn {
+    padding: 14px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pod-designer {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .control-panel {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .control-panel h2 {
+    font-size: 1.25rem;
+  }
+
+  .control-panel .subtitle {
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 18px;
+  }
+
+  .form-group label {
+    font-size: 0.7rem;
+    margin-bottom: 8px;
+  }
+
+  .form-group input[type="text"] {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+
+  .design-grid {
+    gap: 8px;
+  }
+
+  .design-btn {
+    padding: 6px;
+    border-radius: 10px;
+  }
+
+  .divider {
+    margin: 20px 0;
+  }
+
+  .canvas-container {
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .canvas-header h3 {
+    font-size: 0.875rem;
+  }
+
+  .canvas-badge {
+    padding: 4px 10px;
+    font-size: 0.7rem;
   }
 }
