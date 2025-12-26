@@ -10,7 +10,7 @@
   font-weight: 400;
   color-scheme: dark;
   color: rgba(255, 255, 255, 0.9);
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f1a 100%);
+  background: #0f172a;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -21,8 +21,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f1a 100%);
-  background-attachment: fixed;
+  background: #0f172a;
 }
 
 #root {
@@ -31,7 +30,7 @@ body {
 
 /* Selection styling */
 ::selection {
-  background: rgba(102, 126, 234, 0.4);
+  background: rgba(59, 130, 246, 0.4);
   color: #fff;
 }
 

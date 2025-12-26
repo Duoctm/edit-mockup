@@ -75,7 +75,7 @@ const PodDesigner = () => {
   const [selections, setSelections] = useState({
     design: DESIGN_OPTIONS[0],
     mug: MUG_OPTIONS[0],
-    userName: "POD Software",
+    userName: "Your Name",
   });
 
   const stageRef = React.useRef<any>(null);
@@ -123,24 +123,6 @@ const PodDesigner = () => {
                 onClick={() => setSelections({ ...selections, design: item })}
               >
                 <img src={item.url} alt={item.label} />
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Mug Color Selection */}
-        <div className="form-group">
-          <label>Mug Color</label>
-          <div className="asset-grid">
-            {MUG_OPTIONS.map((item) => (
-              <button
-                key={item.id}
-                className={`asset-btn ${
-                  selections.mug.id === item.id ? "active" : ""
-                }`}
-                onClick={() => setSelections({ ...selections, mug: item })}
-              >
-                {item.label}
               </button>
             ))}
           </div>
